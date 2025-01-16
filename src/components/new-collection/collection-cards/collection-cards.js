@@ -25,3 +25,5 @@ const Cards = ({ image, title, sub_title, price , id }) => {
 };
 
 export default Cards;
+
+

@@ -19,7 +19,7 @@ const DetailCard = ({ products }) => {
             ></div>
             <div className="detail">
                 <h1>{product.title}</h1>
-                <p>{product.sub_title}</p>
+                <p>{product.subTitle}</p>
                 <p>Price : ${product.price}</p>
             </div>
             
