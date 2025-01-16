@@ -1,15 +1,28 @@
 import "./detailCard.css";
+import { useParams } from "react-router";
 
-const DetailCard = ({ image, title, sub_title, price, id }) => {
+const DetailCard = ({ products }) => {
+    const { id } = useParams();
+    const product = products.find((product) => product.id === parseInt(id));
+
+    if (!product) {
+        return <div>Product not found</div>;
+    }
+
     return (
-        <div className="card-detail" id={id}>
+        <div className="card-detail" >
             <div
-                className="card-image-detail"
-                style={{ backgroundImage: `url(${image})` }}
+                className="product-image"
+                style={{
+                    background: `url('${product.image}') center/cover no-repeat`,
+                }}
             ></div>
-            <div className="card-title-detail">{title}</div>
-            <div className="card-sub-detail">{sub_title}</div>
-            <div className="card-price-detail">Price : ${price}</div>
+            <div className="detail">
+                <h1>{product.title}</h1>
+                <p>{product.sub_title}</p>
+                <p>Price : ${product.price}</p>
+            </div>
+            
         </div>
     );
 };
